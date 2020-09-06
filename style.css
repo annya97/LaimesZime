@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+label {
+    display: none;
+}
+
+table, td {
+    border: 1px solid #cccccc;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+}
