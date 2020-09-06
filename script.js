@@ -58,7 +58,7 @@ $(document).ready(function() {
             grid += '<tr>';
             for (let j = 1; j <= 9; j++) {
                 let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '">'+cellValue+'</td>';
+                grid += '<td class="value-' + cellValue + '"></td>';
             }
             grid += '</tr>';
         }
@@ -68,6 +68,36 @@ $(document).ready(function() {
 
     function createMediumGrid() {
         console.log('i want medium grid');
+        let grid = '<table id="result-sign">';
+
+        for (let i = 1; i <= 9; i++) {
+            grid += '<tr>';
+            for (let j = 1; j <= 9; j++) {
+                let cellValue = (i * j) % 10;
+                grid += '<td class="value-' + cellValue + '"></td>';
+            }
+            for (let j = 9; j >= 1; j--) {
+                let cellValue = (i * j) % 10;
+                grid += '<td class="value-' + cellValue + '"></td>';
+            }
+            grid += '</tr>';
+        }
+
+        for (let i = 9; i >= 1; i--) {
+            grid += '<tr>';
+            for (let j = 1; j <= 9; j++) {
+                let cellValue = (i * j) % 10;
+                grid += '<td class="value-' + cellValue + '"></td>';
+            }
+            for (let j = 9; j >= 1; j--) {
+                let cellValue = (i * j) % 10;
+                grid += '<td class="value-' + cellValue + '"></td>';
+            }
+            grid += '</tr>';
+        }
+
+        grid += '</table>';
+        $('#result-sign-wrap').html(grid);
     }
 
     function createLargeGrid() {
