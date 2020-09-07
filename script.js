@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    const GRID_MIN = 1;
+    const GRID_MAX = 9;
+
     $('#calculate-btn').click(function() {
         createGrid();
         colorGrid(numbersToColor());
@@ -7,9 +10,9 @@ $(document).ready(function() {
     function createGrid() {
         cleanUp();
 
-        let sizeChoice = $('#grid-size').val();
+        let size = $('#grid-size').val();
 
-        switch(sizeChoice) {
+        switch(size) {
             case 'small':
                 createSmallGrid();
                 break;
@@ -22,25 +25,22 @@ $(document).ready(function() {
         }
     }
 
-    function colorGrid(birthDateNumbers) {
-        $.each(birthDateNumbers, function(index, value) {
+    function colorGrid(uniqueBirthDateNumbers) {
+        $.each(uniqueBirthDateNumbers, function(index, value) {
             $('.value-' + value).css('background-color', 'red');
         });
     }
 
     function numbersToColor() {
-        // Get user's birth date
         let birthDate = [];
         birthDate.push($('#birth-day').val().split(''));
         birthDate.push($('#birth-month').val().split(''));
         birthDate.push($('#birth-year').val().split(''));
 
-        // Set numbers from user input in one array
-        let numbers = [].concat.apply([], birthDate);
+        let birthDateNumbers = [].concat.apply([], birthDate);
 
-        // Filter array to get only unique numbers
-        let uniqueNumbers = numbers.filter(function(value, index) {
-            return index === numbers.indexOf(value);
+        let uniqueNumbers = birthDateNumbers.filter(function(value, index) {
+            return index === birthDateNumbers.indexOf(value);
         });
 
         return uniqueNumbers;
@@ -51,48 +51,32 @@ $(document).ready(function() {
     }
 
     function createSmallGrid() {
-        console.log('i want small grid');
         let grid = '<table id="result-sign">';
 
-        for (let i = 1; i <= 9; i++) {
+        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
             grid += '<tr>';
-            for (let j = 1; j <= 9; j++) {
-                let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '"></td>';
-            }
+            grid += makeAscendingRow(i);
             grid += '</tr>';
         }
+
         grid += '</table>';
         $('#result-sign-wrap').html(grid);
     }
 
     function createMediumGrid() {
-        console.log('i want medium grid');
         let grid = '<table id="result-sign">';
 
-        for (let i = 1; i <= 9; i++) {
+        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
             grid += '<tr>';
-            for (let j = 1; j <= 9; j++) {
-                let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '"></td>';
-            }
-            for (let j = 9; j >= 1; j--) {
-                let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '"></td>';
-            }
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
             grid += '</tr>';
         }
 
-        for (let i = 9; i >= 1; i--) {
+        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
             grid += '<tr>';
-            for (let j = 1; j <= 9; j++) {
-                let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '"></td>';
-            }
-            for (let j = 9; j >= 1; j--) {
-                let cellValue = (i * j) % 10;
-                grid += '<td class="value-' + cellValue + '"></td>';
-            }
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
             grid += '</tr>';
         }
 
@@ -101,32 +85,35 @@ $(document).ready(function() {
     }
 
     function createLargeGrid() {
-        console.log('i want large grid');
+        // TODO
     }
 
+    function makeAscendingRow(i) {
+        let row = '';
 
+        for (let j = GRID_MIN; j <= GRID_MAX; j++) {
+            row += makeTableCell(i, j);
+        }
 
+        return row;
+    }
 
+    function makeDescendingRow(i) {
+        let row = '';
 
+        for (let j = GRID_MAX; j >= GRID_MIN; j--) {
+            row += makeTableCell(i, j);
+        }
 
+        return row;
+    }
 
+    function makeTableCell(i, j) {
+        let cell = '';
+        let cellValue = (i * j) % 10;
 
+        cell += '<td class="value-' + cellValue + '"></td>';
 
-
-
-
-
-
-
-
-
-
-
-    // function sleep(milliseconds) {
-    //     const date = Date.now();
-    //     let currentDate = null;
-    //     do {
-    //         currentDate = Date.now();
-    //     } while (currentDate - date < milliseconds);
-    // }
+        return cell;
+    }
 });
