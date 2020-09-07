@@ -197,20 +197,27 @@
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <label for="grid-size">Zīmes lielums:</label>
-                        <select name="grid-size" id="grid-size" class="form-control">
-                            <option value="small" selected>Maza</option>
-                            <option value="medium">Vidēja</option>
-                            <option value="large">Liela</option>
-                        </select>
+                        <h3>Zīmes lielums:</h3>
+                        <div class="form-check">
+                            <input type="radio" id="size-small" class="form-check-input" name="grid-size" value="small" checked>
+                            <label for="size-small" class="form-check-label">Maza</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="size-medium" class="form-check-input" name="grid-size" value="medium">
+                            <label for="size-medium" class="form-check-label">Vidēja</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="size-large" class="form-check-input" name="grid-size" value="large">
+                            <label for="size-large" class="form-check-label">Liela</label>
+                        </div>
                     </div>
                     <div class="col">
-                        <label for="sign-color">Zīmes krāsa:</label>
-                        <input type="color" id="sign-color" name="sign-color" value="#ff0000">
+                        <label for="sign-color" class="block">Zīmes krāsa:</label>
+                        <input type="color" id="sign-color" class="block" name="sign-color" value="#ff0000">
                     </div>
                     <div class="col">
-                        <label for="back-color">Fona krāsa:</label>
-                        <input type="color" id="back-color" name="back-color" value="#ffffff">
+                        <label for="back-color" class="block">Fona krāsa:</label>
+                        <input type="color" id="back-color" class="block" name="back-color" value="#ffffff">
                     </div>
                 </div>
             </form>

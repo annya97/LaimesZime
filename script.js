@@ -10,7 +10,7 @@ $(document).ready(function() {
     function createGrid() {
         cleanUp();
 
-        let size = $('#grid-size').val();
+        let size = $('input[name="grid-size"]:checked').val();
 
         switch(size) {
             case 'small':

@@ -1,9 +1,9 @@
-label, input {
-    display: block;
-}
-
 .hide {
     display: none;
+}
+
+.block {
+    display: block;
 }
 
 table {
