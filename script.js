@@ -17,10 +17,12 @@ $(document).ready(function() {
                 createSmallGrid();
                 break;
             case 'medium':
-                createMediumGrid();
+                let timesTwoSmallGridsInMediumRow = 1;
+                createCustomGrid(timesTwoSmallGridsInMediumRow);
                 break;
             case 'large':
-                createLargeGrid();
+                let timesTwoSmallGridsInLargeRow = 2;
+                createCustomGrid(timesTwoSmallGridsInLargeRow);
                 break;
         }
     }
@@ -60,78 +62,46 @@ $(document).ready(function() {
         }
 
         grid += '</table>';
+
         $('#result-sign-wrap').html(grid);
     }
 
-    function createMediumGrid() {
+    function createCustomGrid(times) {
         let grid = '<table id="result-sign">';
 
-        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
-        }
+        for (let j = 1; j <= times; j++) {
+            for (let i = GRID_MIN; i <= GRID_MAX; i++) {
+                grid += makeRowFromTwoSmallGrids(times, i);
+            }
 
-        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
+            for (let i = GRID_MAX; i >= GRID_MIN; i--) {
+                grid += makeRowFromTwoSmallGrids(times, i);
+            }
         }
 
         grid += '</table>';
+
         $('#result-sign-wrap').html(grid);
     }
 
-    function createLargeGrid() {
-        let grid = '<table id="result-sign">';
+    function makeRowFromTwoSmallGrids(times, i) {
+        let twoSmallGrids = '<tr>';
 
-        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
+        for (let j = 1; j <= times; j++) {
+            twoSmallGrids += makeAscendingRow(i);
+            twoSmallGrids += makeDescendingRow(i);
         }
 
-        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
-        }
+        twoSmallGrids += '</tr>';
 
-        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
-        }
-
-        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
-            grid += '<tr>';
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += makeAscendingRow(i);
-            grid += makeDescendingRow(i);
-            grid += '</tr>';
-        }
-
-        grid += '</table>';
-        $('#result-sign-wrap').html(grid);
+        return twoSmallGrids;
     }
 
     function makeAscendingRow(i) {
         let row = '';
 
         for (let j = GRID_MIN; j <= GRID_MAX; j++) {
-            row += makeTableCell(i, j);
+            row += makeCell(i, j);
         }
 
         return row;
@@ -141,13 +111,13 @@ $(document).ready(function() {
         let row = '';
 
         for (let j = GRID_MAX; j >= GRID_MIN; j--) {
-            row += makeTableCell(i, j);
+            row += makeCell(i, j);
         }
 
         return row;
     }
 
-    function makeTableCell(i, j) {
+    function makeCell(i, j) {
         let cell = '';
         let cellValue = (i * j) % 10;
 
