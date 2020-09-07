@@ -85,7 +85,46 @@ $(document).ready(function() {
     }
 
     function createLargeGrid() {
-        // TODO
+        let grid = '<table id="result-sign">';
+
+        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
+            grid += '<tr>';
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += '</tr>';
+        }
+
+        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
+            grid += '<tr>';
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += '</tr>';
+        }
+
+        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
+            grid += '<tr>';
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += '</tr>';
+        }
+
+        for (let i = GRID_MAX; i >= GRID_MIN; i--) {
+            grid += '<tr>';
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += makeAscendingRow(i);
+            grid += makeDescendingRow(i);
+            grid += '</tr>';
+        }
+
+        grid += '</table>';
+        $('#result-sign-wrap').html(grid);
     }
 
     function makeAscendingRow(i) {
