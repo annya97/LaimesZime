@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $('#calculate-btn').click(function() {
         createGrid();
-        colorGrid(numbersToColor());
+        colorGrid();
     });
 
     function createGrid() {
@@ -27,9 +27,17 @@ $(document).ready(function() {
         }
     }
 
-    function colorGrid(uniqueBirthDateNumbers) {
+    function colorGrid() {
+        let signColor = $('#sign-color').val();
+        let backColor = $('#back-color').val();
+
+        $('table').css('border-color', signColor);
+        $('td').css('background-color', backColor);
+
+        let uniqueBirthDateNumbers = numbersToColor();
+
         $.each(uniqueBirthDateNumbers, function(index, value) {
-            $('.value-' + value).css('background-color', 'red');
+            $('.value-' + value).css('background-color', signColor);
         });
     }
 

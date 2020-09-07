@@ -9,12 +9,12 @@
     </head>
     <body>
         <div class="container">
-            <h1>Laimes zīme</h1>
+            <h1 class="text-center">Laimes zīme</h1>
             <form class="form-group">
                 <h3>Tavs dzimšanas datums:</h3>
                 <div class="form-row">
                     <div class="col">
-                        <label for="birth-day"></label>
+                        <label for="birth-day" class="hide">Diena</label>
                         <select name="birth-day" id="birth-day" class="form-control">
                             <option value="02" selected>Diena</option>
                             <option value="01">1</option>
@@ -51,7 +51,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <label for="birth-month"></label>
+                        <label for="birth-month" class="hide">Mēnesis</label>
                         <select name="birth-month" id="birth-month" class="form-control">
                             <option value="05" selected>Mēnesis</option>
                             <option value="01">Janvāris</option>
@@ -69,7 +69,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <label for="birth-year"></label>
+                        <label for="birth-year" class="hide">Gads</label>
                         <select name="birth-year" id="birth-year" class="form-control">
                             <option value="1997" selected>Gads</option>
                             <option value="2020">2020</option>
@@ -195,15 +195,22 @@
                         </select>
                     </div>
                 </div>
-                <h3>Zīmes lielums:</h3>
                 <div class="form-row">
                     <div class="col">
-                        <label for="grid-size"></label>
+                        <label for="grid-size">Zīmes lielums:</label>
                         <select name="grid-size" id="grid-size" class="form-control">
                             <option value="small" selected>Maza</option>
                             <option value="medium">Vidēja</option>
                             <option value="large">Liela</option>
                         </select>
+                    </div>
+                    <div class="col">
+                        <label for="sign-color">Zīmes krāsa:</label>
+                        <input type="color" id="sign-color" name="sign-color" value="#ff0000">
+                    </div>
+                    <div class="col">
+                        <label for="back-color">Fona krāsa:</label>
+                        <input type="color" id="back-color" name="back-color" value="#ffffff">
                     </div>
                 </div>
             </form>
