@@ -1,21 +1,12 @@
-$(document).ready(function() {
-    const GRID_MIN = 1;
-    const GRID_MAX = 9;
-
-    let signColor = $('#sign-color');
-    let backColor = $('#back-color');
-    let frameColor = $('#frame-color');
-    let frameColorRadio = $('input[name="frame-color-radio"]');
-
-    $('#calculate-btn').click(function() {
-        cleanUp();
-        createGrid();
-        colorGrid();
-    });
+$(document).ready(function () {
+    const signColor = $('#sign-color');
+    const backColor = $('#back-color');
+    const frameColor = $('#frame-color');
+    const frameColorRadio = $('input[name="frame-color-radio"]');
 
     signColor.change(function () {
-        let asSignRadio = $('#frame-as-sign');
-        let color = this.value;
+        const asSignRadio = $('#frame-as-sign');
+        const color = this.value;
 
         asSignRadio.val(color);
 
@@ -25,8 +16,8 @@ $(document).ready(function() {
     });
 
     backColor.change(function () {
-        let asBackRadio = $('#frame-as-back');
-        let color = this.value;
+        const asBackRadio = $('#frame-as-back');
+        const color = this.value;
 
         asBackRadio.val(color);
 
@@ -40,49 +31,46 @@ $(document).ready(function() {
     });
 
     frameColorRadio.change(function () {
-        let radioChoice = this.value;
+        const radioChoice = this.value;
 
         frameColor.val(radioChoice);
     });
 
-    function cleanUp() {
+    $('#calculate-btn').click(function () {
+        cleanUp();
+        createGrid();
+        colorGrid();
+    });
+
+    function cleanUp () {
         $('#result-sign').remove();
     }
 
-    function createGrid() {
-        let size = $('input[name="grid-size"]:checked').val();
+    function createGrid () {
+        const size = $('input[name="grid-size"]:checked').val();
 
-        switch(size) {
+        switch (size) {
             case 'small':
                 createSmallGrid();
                 break;
             case 'medium':
-                let timesTwoSmallGridsInMediumRow = 1;
+                const timesTwoSmallGridsInMediumRow = 1;
                 createCustomGrid(timesTwoSmallGridsInMediumRow);
                 break;
             case 'large':
-                let timesTwoSmallGridsInLargeRow = 2;
+                const timesTwoSmallGridsInLargeRow = 2;
                 createCustomGrid(timesTwoSmallGridsInLargeRow);
                 break;
         }
     }
 
-    function colorGrid() {
-        $('td').css('background-color', backColor.val());
+    const gridMin = 1;
+    const gridMax = 9;
 
-        let uniqueBirthDateNumbers = numbersToColor();
-
-        $.each(uniqueBirthDateNumbers, function(index, value) {
-            $('.value-' + value).css('background-color', signColor.val());
-        });
-
-        $('table').css('border-color', frameColor.val());
-    }
-
-    function createSmallGrid() {
+    function createSmallGrid () {
         let grid = '<table id="result-sign">';
 
-        for (let i = GRID_MIN; i <= GRID_MAX; i++) {
+        for (let i = gridMin; i <= gridMax; i++) {
             grid += '<tr>';
             grid += makeAscendingRow(i);
             grid += '</tr>';
@@ -93,15 +81,35 @@ $(document).ready(function() {
         $('#result-sign-wrap').html(grid);
     }
 
-    function createCustomGrid(times) {
+    function makeAscendingRow (i) {
+        let row = '';
+
+        for (let j = gridMin; j <= gridMax; j++) {
+            row += makeCell(i, j);
+        }
+
+        return row;
+    }
+
+    function makeCell (i, j) {
+        let cell = '';
+
+        const cellValue = (i * j) % 10;
+
+        cell += '<td class="value-' + cellValue + '"></td>';
+
+        return cell;
+    }
+
+    function createCustomGrid (times) {
         let grid = '<table id="result-sign">';
 
         for (let j = 1; j <= times; j++) {
-            for (let i = GRID_MIN; i <= GRID_MAX; i++) {
+            for (let i = gridMin; i <= gridMax; i++) {
                 grid += makeRowFromTwoSmallGrids(times, i);
             }
 
-            for (let i = GRID_MAX; i >= GRID_MIN; i--) {
+            for (let i = gridMax; i >= gridMin; i--) {
                 grid += makeRowFromTwoSmallGrids(times, i);
             }
         }
@@ -111,22 +119,7 @@ $(document).ready(function() {
         $('#result-sign-wrap').html(grid);
     }
 
-    function numbersToColor() {
-        let birthDate = [];
-        birthDate.push($('#birth-day').val().split(''));
-        birthDate.push($('#birth-month').val().split(''));
-        birthDate.push($('#birth-year').val().split(''));
-
-        let birthDateNumbers = [].concat.apply([], birthDate);
-
-        let uniqueNumbers = birthDateNumbers.filter(function(value, index) {
-            return index === birthDateNumbers.indexOf(value);
-        });
-
-        return uniqueNumbers;
-    }
-
-    function makeRowFromTwoSmallGrids(times, i) {
+    function makeRowFromTwoSmallGrids (times, i) {
         let twoSmallGrids = '<tr>';
 
         for (let j = 1; j <= times; j++) {
@@ -139,32 +132,38 @@ $(document).ready(function() {
         return twoSmallGrids;
     }
 
-    function makeAscendingRow(i) {
+    function makeDescendingRow (i) {
         let row = '';
 
-        for (let j = GRID_MIN; j <= GRID_MAX; j++) {
+        for (let j = gridMax; j >= gridMin; j--) {
             row += makeCell(i, j);
         }
 
         return row;
     }
 
-    function makeDescendingRow(i) {
-        let row = '';
+    function colorGrid () {
+        $('td').css('background-color', backColor.val());
+        $('table').css('border-color', frameColor.val());
 
-        for (let j = GRID_MAX; j >= GRID_MIN; j--) {
-            row += makeCell(i, j);
-        }
-
-        return row;
+        $.each(numbersToColor(), function (index, value) {
+            $('.value-' + value).css('background-color', signColor.val());
+        });
     }
 
-    function makeCell(i, j) {
-        let cell = '';
-        let cellValue = (i * j) % 10;
+    function numbersToColor () {
+        let birthDate = [];
 
-        cell += '<td class="value-' + cellValue + '"></td>';
+        birthDate.push($('#birth-day').val().split(''));
+        birthDate.push($('#birth-month').val().split(''));
+        birthDate.push($('#birth-year').val().split(''));
 
-        return cell;
+        const birthDateNumbers = [].concat.apply([], birthDate);
+
+        const uniqueNumbers = birthDateNumbers.filter(function (value, index) {
+            return index === birthDateNumbers.indexOf(value);
+        });
+
+        return uniqueNumbers;
     }
 });
