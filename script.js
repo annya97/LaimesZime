@@ -2,14 +2,54 @@ $(document).ready(function() {
     const GRID_MIN = 1;
     const GRID_MAX = 9;
 
+    let signColor = $('#sign-color');
+    let backColor = $('#back-color');
+    let frameColor = $('#frame-color');
+    let frameColorRadio = $('input[name="frame-color-radio"]');
+
     $('#calculate-btn').click(function() {
+        cleanUp();
         createGrid();
         colorGrid();
     });
 
-    function createGrid() {
-        cleanUp();
+    signColor.change(function () {
+        let asSignRadio = $('#frame-as-sign');
+        let color = this.value;
 
+        asSignRadio.val(color);
+
+        if (asSignRadio.prop('checked')) {
+            frameColor.val(color);
+        }
+    });
+
+    backColor.change(function () {
+        let asBackRadio = $('#frame-as-back');
+        let color = this.value;
+
+        asBackRadio.val(color);
+
+        if (asBackRadio.prop('checked')) {
+            frameColor.val(color);
+        }
+    });
+
+    frameColor.change(function () {
+        frameColorRadio.prop('checked', false);
+    });
+
+    frameColorRadio.change(function () {
+        let radioChoice = this.value;
+
+        frameColor.val(radioChoice);
+    });
+
+    function cleanUp() {
+        $('#result-sign').remove();
+    }
+
+    function createGrid() {
         let size = $('input[name="grid-size"]:checked').val();
 
         switch(size) {
@@ -28,36 +68,15 @@ $(document).ready(function() {
     }
 
     function colorGrid() {
-        let signColor = $('#sign-color').val();
-        let backColor = $('#back-color').val();
-
-        $('table').css('border-color', signColor);
-        $('td').css('background-color', backColor);
+        $('td').css('background-color', backColor.val());
 
         let uniqueBirthDateNumbers = numbersToColor();
 
         $.each(uniqueBirthDateNumbers, function(index, value) {
-            $('.value-' + value).css('background-color', signColor);
-        });
-    }
-
-    function numbersToColor() {
-        let birthDate = [];
-        birthDate.push($('#birth-day').val().split(''));
-        birthDate.push($('#birth-month').val().split(''));
-        birthDate.push($('#birth-year').val().split(''));
-
-        let birthDateNumbers = [].concat.apply([], birthDate);
-
-        let uniqueNumbers = birthDateNumbers.filter(function(value, index) {
-            return index === birthDateNumbers.indexOf(value);
+            $('.value-' + value).css('background-color', signColor.val());
         });
 
-        return uniqueNumbers;
-    }
-
-    function cleanUp() {
-        $('#result-sign').remove();
+        $('table').css('border-color', frameColor.val());
     }
 
     function createSmallGrid() {
@@ -90,6 +109,21 @@ $(document).ready(function() {
         grid += '</table>';
 
         $('#result-sign-wrap').html(grid);
+    }
+
+    function numbersToColor() {
+        let birthDate = [];
+        birthDate.push($('#birth-day').val().split(''));
+        birthDate.push($('#birth-month').val().split(''));
+        birthDate.push($('#birth-year').val().split(''));
+
+        let birthDateNumbers = [].concat.apply([], birthDate);
+
+        let uniqueNumbers = birthDateNumbers.filter(function(value, index) {
+            return index === birthDateNumbers.indexOf(value);
+        });
+
+        return uniqueNumbers;
     }
 
     function makeRowFromTwoSmallGrids(times, i) {
