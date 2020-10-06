@@ -8,7 +8,10 @@
     src: url(fonts/Montserrat-Regular.ttf);
 }
 
+$smallSpace: 20px;
+$bigSpace: 40px;
 $cellSize: 20px;
+
 $white: #ffffff;
 $lightGrey: #ced4da;
 $darkGrey: #6c757d;
@@ -17,14 +20,8 @@ $black: #000000;
 body {
     font-family: montserrat, sans-serif;
 
-    .col,
-    [class*="col-"] {
-        padding: 0 20px;
-    }
-
     h1 {
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin: $bigSpace 0;
         font-family: greatVibes, serif;
         font-size: 100px;
     }
@@ -38,24 +35,15 @@ body {
     }
 
     form {
-        margin-bottom: 40px;
-
-        .form-group {
-            margin: 0;
-        }
-
-        select {
-            border: 1px solid $darkGrey;
-            color: $black;
-        }
+        margin-bottom: $bigSpace;
 
         .row {
             margin: 0;
 
             &:not(:last-child) {
                 border-bottom: 1px solid $lightGrey;
-                padding-bottom: 20px;
-                margin-bottom: 20px;
+                padding-bottom: $smallSpace;
+                margin-bottom: $smallSpace;
             }
 
             & > div:not(:last-child) {
@@ -63,45 +51,54 @@ body {
             }
         }
 
-        input[type="color"] {
-            width: 38px;
-            height: 38px;
-            border: 0;
-            padding: 0;
-            background-color: unset;
+        .form-group {
+            margin: 0;
 
-            &::-webkit-color-swatch-wrapper {
-                padding: 0;
-            }
-
-            &::-webkit-color-swatch {
+            select {
                 border: 1px solid $darkGrey;
-                border-radius: .25rem;
+                color: $black;
             }
-        }
 
-        #or-word {
-            padding: 10px 0;
-        }
+            input[type="color"] {
+                width: 38px;
+                height: 38px;
+                border: 0;
+                padding: 0;
+                background-color: unset;
 
-        select,
-        option,
-        .form-check-input,
-        .form-check-label,
-        input[type="color"] {
-            &:hover {
-                cursor: pointer;
+                &::-webkit-color-swatch-wrapper {
+                    padding: 0;
+                }
+
+                &::-webkit-color-swatch {
+                    border: 1px solid $darkGrey;
+                    border-radius: .25rem;
+                }
             }
-        }
 
-        .color-label {
-            pointer-events: none;
+            #or-word {
+                padding: 10px 0;
+            }
+
+            select,
+            option,
+            .form-check-input,
+            .form-check-label,
+            input[type="color"] {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .color-label {
+                pointer-events: none;
+            }
         }
     }
 
     #calculate-btn,
     #result-sign-wrap {
-        margin-bottom: 40px;
+        margin-bottom: $bigSpace;
     }
 
     table {
@@ -111,5 +108,10 @@ body {
             width: $cellSize;
             height: $cellSize;
         }
+    }
+
+    .col,
+    [class*="col-"] {
+        padding: 0 $smallSpace;
     }
 }
