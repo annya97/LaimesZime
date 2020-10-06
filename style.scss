@@ -17,7 +17,8 @@ $black: #000000;
 body {
     font-family: montserrat, sans-serif;
 
-    [class*="col"] {
+    .col,
+    [class*="col-"] {
         padding: 0 20px;
     }
 
@@ -81,6 +82,20 @@ body {
 
         #or-word {
             padding: 10px 0;
+        }
+
+        select,
+        option,
+        .form-check-input,
+        .form-check-label,
+        input[type="color"] {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .color-label {
+            pointer-events: none;
         }
     }
 
