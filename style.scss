@@ -36,12 +36,12 @@ body {
         display: none;
     }
 
-    .block {
-        display: block;
-    }
-
-    .form-group {
+    form {
         margin-bottom: 40px;
+
+        .form-group {
+            margin: 0;
+        }
 
         select {
             border: 1px solid $darkGrey;
