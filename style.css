@@ -1,11 +1,3 @@
-@font-face {
-  font-family: greatVibes;
-  src: url(fonts/GreatVibes-Regular.ttf);
-}
-@font-face {
-  font-family: montserrat;
-  src: url(fonts/Montserrat-Regular.ttf);
-}
 body {
   font-family: montserrat, sans-serif;
 }
@@ -82,6 +74,15 @@ body table td {
 body .col,
 body [class*=col-] {
   padding: 0 20px;
+}
+
+@font-face {
+  font-family: greatVibes;
+  src: url(fonts/GreatVibes-Regular.ttf);
+}
+@font-face {
+  font-family: montserrat;
+  src: url(fonts/Montserrat-Regular.ttf);
 }
 
 /*# sourceMappingURL=style.css.map */
