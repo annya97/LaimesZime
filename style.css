@@ -1,0 +1,87 @@
+@font-face {
+  font-family: greatVibes;
+  src: url(fonts/GreatVibes-Regular.ttf);
+}
+@font-face {
+  font-family: montserrat;
+  src: url(fonts/Montserrat-Regular.ttf);
+}
+body {
+  font-family: montserrat, sans-serif;
+}
+body h1 {
+  margin: 40px 0;
+  font-family: greatVibes, serif;
+  font-size: 100px;
+}
+body .title {
+  font-size: 24px;
+}
+body .hide {
+  display: none;
+}
+body form {
+  margin-bottom: 40px;
+}
+body form .row {
+  margin: 0;
+}
+body form .row:not(:last-child) {
+  border-bottom: 1px solid #ced4da;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+body form .row > div:not(:last-child) {
+  border-right: 1px solid #ced4da;
+}
+body form .form-group {
+  margin: 0;
+}
+body form .form-group select {
+  border: 1px solid #6c757d;
+  color: #000000;
+}
+body form .form-group input[type=color] {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  padding: 0;
+  background-color: unset;
+}
+body form .form-group input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+body form .form-group input[type=color]::-webkit-color-swatch {
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
+}
+body form .form-group #or-word {
+  padding: 10px 0;
+}
+body form .form-group select:hover,
+body form .form-group option:hover,
+body form .form-group .form-check-input:hover,
+body form .form-group .form-check-label:hover,
+body form .form-group input[type=color]:hover {
+  cursor: pointer;
+}
+body form .form-group .color-label {
+  pointer-events: none;
+}
+body #calculate-btn,
+body #result-sign-wrap {
+  margin-bottom: 40px;
+}
+body table {
+  border: 2px solid #ffffff;
+}
+body table td {
+  width: 20px;
+  height: 20px;
+}
+body .col,
+body [class*=col-] {
+  padding: 0 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
