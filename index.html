@@ -13,13 +13,13 @@
             <form>
                 <div class="row">
                     <div class="col-8">
-                        <div class="form-group">
-                            <h3 class="title">Tavs dzimšanas datums:</h3>
+                        <div id="birth-date-section" class="form-group">
+                            <h3 class="title">Dzimšanas datums:</h3>
                             <div class="form-row">
                                 <div class="col">
                                     <label for="birth-day" class="hide">Diena</label>
                                     <select name="birth-day" id="birth-day" class="form-control">
-                                        <option value="" selected disabled>Diena</option>
+                                        <option selected disabled hidden>Diena</option>
                                         <option value="01">1</option>
                                         <option value="02">2</option>
                                         <option value="03">3</option>
@@ -56,7 +56,7 @@
                                 <div class="col">
                                     <label for="birth-month" class="hide">Mēnesis</label>
                                     <select name="birth-month" id="birth-month" class="form-control">
-                                        <option value="" selected disabled>Mēnesis</option>
+                                        <option selected disabled hidden>Mēnesis</option>
                                         <option value="01">Janvāris</option>
                                         <option value="02">Februāris</option>
                                         <option value="03">Marts</option>
@@ -74,7 +74,7 @@
                                 <div class="col">
                                     <label for="birth-year" class="hide">Gads</label>
                                     <select name="birth-year" id="birth-year" class="form-control">
-                                        <option value="" selected disabled>Gads</option>
+                                        <option selected disabled hidden>Gads</option>
                                         <option value="2020">2020</option>
                                         <option value="2019">2019</option>
                                         <option value="2018">2018</option>
@@ -198,6 +198,7 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="text-danger hide"></div>
                         </div>
                     </div>
                     <div class="col-4">

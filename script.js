@@ -1,8 +1,6 @@
 $(document).ready(function () {
     const signColor = $('#sign-color');
-    const backColor = $('#back-color');
     const frameColor = $('#frame-color');
-    const frameColorRadio = $('input[name="frame-color-radio"]');
 
     signColor.change(function () {
         const asSignRadio = $('#frame-as-sign');
@@ -15,6 +13,8 @@ $(document).ready(function () {
         }
     });
 
+    const backColor = $('#back-color');
+
     backColor.change(function () {
         const asBackRadio = $('#frame-as-back');
         const color = this.value;
@@ -26,6 +26,8 @@ $(document).ready(function () {
         }
     });
 
+    const frameColorRadio = $('input[name="frame-color-radio"]');
+
     frameColor.change(function () {
         frameColorRadio.prop('checked', false);
     });
@@ -36,14 +38,34 @@ $(document).ready(function () {
         frameColor.val(radioChoice);
     });
 
+    const birthDateError = $('#birth-date-section .text-danger');
+
     $('#calculate-btn').click(function () {
         cleanUp();
-        createGrid();
-        colorGrid();
+
+        if (isBirthDateEntered()) {
+            createGrid();
+            colorGrid();
+        } else {
+            birthDateError.empty();
+            birthDateError.append('Ievadiet dzimšanas datumu!');
+            birthDateError.removeClass('hide');
+        }
     });
 
     function cleanUp () {
+        birthDateError.empty();
+        birthDateError.addClass('hide');
+
         $('#result-sign').remove();
+    }
+
+    function isBirthDateEntered () {
+        return Boolean(
+            $('#birth-day').val()
+            && $('#birth-month').val()
+            && $('#birth-year').val()
+        );
     }
 
     function createGrid () {
@@ -96,7 +118,7 @@ $(document).ready(function () {
 
         const cellValue = (i * j) % 10;
 
-        cell += '<td class="value-' + cellValue + '"></td>';
+        cell += '<td class="value-' + cellValue + '"/>';
 
         return cell;
     }

@@ -6,12 +6,6 @@ body h1 {
   font-family: greatVibes, serif;
   font-size: 100px;
 }
-body .title {
-  font-size: 24px;
-}
-body .hide {
-  display: none;
-}
 body form {
   margin-bottom: 40px;
 }
@@ -29,9 +23,16 @@ body form .row > div:not(:last-child) {
 body form .form-group {
   margin: 0;
 }
+body form .form-group .title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 body form .form-group select {
   border: 1px solid #6c757d;
   color: #000000;
+}
+body form .form-group .text-danger {
+  margin-top: 10px;
 }
 body form .form-group input[type=color] {
   width: 38px;
@@ -74,6 +75,9 @@ body table td {
 body .col,
 body [class*=col-] {
   padding: 0 20px;
+}
+body .hide {
+  display: none;
 }
 
 @font-face {
