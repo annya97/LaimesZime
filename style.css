@@ -88,5 +88,75 @@ body .hide {
   font-family: montserrat;
   src: url(fonts/Montserrat-Regular.ttf);
 }
+@media (max-width: 768px) {
+  body h1 {
+    margin: 30px 0;
+    font-size: 80px;
+  }
+  body form {
+    margin-bottom: 30px;
+  }
+  body form .form-group .title {
+    font-size: 20px;
+  }
+  body form .form-group .birth-date-select:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  body form .form-group select {
+    font-size: 16px;
+    height: 36px;
+  }
+  body form .form-group input[type=color] {
+    width: 36px;
+    height: 36px;
+  }
+  body #calculate-btn,
+body #result-sign-wrap {
+    margin-bottom: 30px;
+  }
+  body table td {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media (max-width: 576px) {
+  body h1 {
+    margin: 20px 0;
+    font-size: 60px;
+  }
+  body form {
+    margin-bottom: 40px;
+  }
+  body form .row > div:not(:last-child) {
+    border-right: 0;
+  }
+  body form .form-group select {
+    font-size: 16px;
+    height: 40px;
+  }
+  body form .form-group .text-danger {
+    font-size: 14px;
+  }
+  body form .form-group input[type=color] {
+    width: 40px;
+    height: 40px;
+  }
+  body #calculate-btn,
+body #result-sign-wrap {
+    margin-bottom: 40px;
+  }
+  body table td {
+    width: 8px;
+    height: 8px;
+  }
+  body [class*=col-sm] {
+    padding: 0;
+  }
+  body [class*=col-sm]:not(:last-child) {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ced4da;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
