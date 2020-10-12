@@ -8,9 +8,9 @@ body {
 
     h1 {
         margin: 20px 0;
-        font-size: 60px;
-        font-family: greatVibes, serif;
         text-align: center;
+        font-family: greatVibes, serif;
+        font-size: 60px;
     }
 
     .row {
@@ -37,9 +37,9 @@ body {
 
             .title {
                 margin-bottom: 10px;
+                text-align: center;
                 font-size: 20px;
                 font-weight: bold;
-                text-align: center;
             }
 
             .birth-date-select {
@@ -50,26 +50,26 @@ body {
                 }
 
                 select {
-                    border: 1px solid $darkGrey;
-                    color: $black;
-                    height: 40px;
-                    max-width: 300px;
                     margin: 0 auto;
+                    border: 1px solid $darkGrey;
+                    max-width: 300px;
+                    height: 40px;
+                    color: $black;
                 }
             }
 
             .text-danger {
                 margin-top: 10px;
-                font-size: 14px;
                 text-align: center;
+                font-size: 14px;
             }
 
             input[type="color"] {
+                border: 0;
+                background-color: unset;
+                padding: 0;
                 width: 40px;
                 height: 40px;
-                border: 0;
-                padding: 0;
-                background-color: unset;
 
                 &::-webkit-color-swatch-wrapper {
                     padding: 0;
