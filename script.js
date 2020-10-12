@@ -48,7 +48,7 @@ $(document).ready(function () {
             colorGrid();
         } else {
             birthDateError.empty();
-            birthDateError.append('Ievadiet dzimšanas datumu!');
+            birthDateError.append('Ievadiet pilnu dzimšanas datumu!');
             birthDateError.removeClass('hide');
         }
     });
