@@ -10,10 +10,9 @@
     <body>
         <div class="container">
             <h1 class="text-center">Laimes zīme</h1>
-            <form>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div id="birth-date-section" class="form-group">
+            <form class="row">
+                    <div id="birth-date-section" class="col-sm-8">
+                        <div class="form-group">
                             <h3 class="title">Dzimšanas datums:</h3>
                             <div class="form-row">
                                 <div class="col-md birth-date-select">
@@ -201,57 +200,73 @@
                             <div class="text-danger hide"></div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div id="sign-size-section" class="col-sm-4">
                         <div class="form-group">
                             <h3 class="title">Zīmes lielums:</h3>
-                            <div class="form-check">
-                                <input type="radio" id="size-small" class="form-check-input" name="grid-size" value="small" checked>
-                                <label for="size-small" class="form-check-label">Maza</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="size-medium" class="form-check-input" name="grid-size" value="medium">
-                                <label for="size-medium" class="form-check-label">Vidēja</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="size-large" class="form-check-input" name="grid-size" value="large">
-                                <label for="size-large" class="form-check-label">Liela</label>
+                            <div class="d-flex justify-content-center">
+                                <div id="size-choice-radios">
+                                    <div class="form-check">
+                                        <input type="radio" id="size-small" class="form-check-input" name="grid-size" value="small" checked>
+                                        <label for="size-small" class="form-check-label">Maza</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="size-medium" class="form-check-input" name="grid-size" value="medium">
+                                        <label for="size-medium" class="form-check-label">Vidēja</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="size-large" class="form-check-input" name="grid-size" value="large">
+                                        <label for="size-large" class="form-check-label">Liela</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
+                    <div id="sign-color-section" class="col-sm-4">
                         <div class="form-group">
-                            <label for="sign-color" class="title color-label">Zīmes krāsa:</label>
-                            <input type="color" id="sign-color" class="form-control" name="sign-color" value="#cf1717">
+                            <h3 class="title">Zīmes krāsa:</h3>
+                            <div class="d-flex justify-content-center">
+                                <label for="sign-color" class="hide">Zīmes krāsa:</label>
+                                <input type="color" id="sign-color" class="form-control" name="sign-color" value="#cf1717">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div id="back-color-section" class="col-sm-4">
                         <div class="form-group">
-                            <label for="back-color" class="title color-label">Fona krāsa:</label>
-                            <input type="color" id="back-color" class="form-control" name="back-color" value="#ffffff">
+                            <h3 class="title">Fona krāsa:</h3>
+                            <div class="d-flex justify-content-center">
+                                <label for="back-color" class="hide">Fona krāsa:</label>
+                                <input type="color" id="back-color" class="form-control" name="back-color" value="#ffffff">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div id="frame-color-section" class="col-sm-4">
                         <div class="form-group">
-                            <label for="frame-color" class="title color-label">Rāmja krāsa:</label>
-                            <input type="color" id="frame-color" class="form-control frame-choice" name="frame-color" value="#ffffff">
-                            <div id="or-word">*vai*</div>
-                            <div class="form-check">
-                                <input type="radio" id="frame-no-color" class="form-check-input frame-choice" name="frame-color-radio" value="#ffffff" checked>
-                                <label for="frame-no-color" class="form-check-label">Nav</label>
+                            <h3 class="title">Rāmja krāsa:</h3>
+                            <div class="d-flex justify-content-center">
+                                <label for="frame-color" class="hide">Rāmja krāsa:</label>
+                                <input type="color" id="frame-color" class="form-control frame-choice" name="frame-color" value="#ffffff">
                             </div>
-                            <div class="form-check">
-                                <input type="radio" id="frame-as-sign" class="form-check-input frame-choice" name="frame-color-radio" value="#cf1717">
-                                <label for="frame-as-sign" class="form-check-label">Kā zīmei</label>
+                            <div class="d-flex justify-content-center">
+                                <div id="or-word">*vai*</div>
                             </div>
-                            <div class="form-check">
-                                <input type="radio" id="frame-as-back" class="form-check-input frame-choice" name="frame-color-radio" value="#ffffff">
-                                <label for="frame-as-back" class="form-check-label">Kā fonam</label>
+                            <div class="d-flex justify-content-center">
+                                <div id="frame-choice-radios">
+                                    <div class="form-check">
+                                        <input type="radio" id="frame-no-color" class="form-check-input" name="frame-color-radio" value="#ffffff">
+                                        <label for="frame-no-color" class="form-check-label">Nav</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="frame-as-sign" class="form-check-input" name="frame-color-radio" value="#cf1717">
+                                        <label for="frame-as-sign" class="form-check-label">Kā zīmei</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="frame-as-back" class="form-check-input" name="frame-color-radio" value="#ffffff">
+                                        <label for="frame-as-back" class="form-check-label">Kā fonam</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </form>
             <div class="d-flex justify-content-center">
                 <button type="button" id="calculate-btn" class="btn btn-primary">Uzzīmēt</button>

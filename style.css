@@ -6,26 +6,33 @@ body h1 {
   font-family: greatVibes, serif;
   font-size: 100px;
 }
+body .row {
+  margin-right: 0;
+  margin-left: 0;
+}
 body form {
   margin-bottom: 40px;
 }
-body form .row {
-  margin: 0;
+body form > div {
+  padding: 20px;
 }
-body form .row:not(:last-child) {
+body form #birth-date-section,
+body form #sign-size-section {
   border-bottom: 1px solid #ced4da;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
 }
-body form .row > div:not(:last-child) {
+body form #birth-date-section,
+body form #sign-color-section,
+body form #back-color-section {
   border-right: 1px solid #ced4da;
 }
 body form .form-group {
   margin: 0;
 }
 body form .form-group .title {
-  font-size: 24px;
   margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 body form .form-group select {
   border: 1px solid #6c757d;
@@ -58,9 +65,6 @@ body form .form-group .form-check-label:hover,
 body form .form-group input[type=color]:hover {
   cursor: pointer;
 }
-body form .form-group .color-label {
-  pointer-events: none;
-}
 body #calculate-btn,
 body #result-sign-wrap {
   margin-bottom: 40px;
@@ -69,12 +73,8 @@ body table {
   border: 2px solid #ffffff;
 }
 body table td {
-  width: 20px;
-  height: 20px;
-}
-body .col,
-body [class*=col-] {
-  padding: 0 20px;
+  width: 18px;
+  height: 18px;
 }
 body .hide {
   display: none;
@@ -127,12 +127,20 @@ body #result-sign-wrap {
   body form {
     margin-bottom: 40px;
   }
-  body form .row > div:not(:last-child) {
+  body form #sign-color-section,
+body form #back-color-section {
+    border-bottom: 1px solid #ced4da;
+  }
+  body form #birth-date-section,
+body form #sign-color-section,
+body form #back-color-section {
     border-right: 0;
   }
   body form .form-group select {
     font-size: 16px;
     height: 40px;
+    max-width: 300px;
+    margin: 0 auto;
   }
   body form .form-group .text-danger {
     font-size: 14px;
@@ -146,16 +154,14 @@ body #result-sign-wrap {
     margin-bottom: 40px;
   }
   body table td {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
-  body [class*=col-sm] {
-    padding: 0;
-  }
-  body [class*=col-sm]:not(:last-child) {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ced4da;
+}
+@media (max-width: 420px) {
+  body table td {
+    width: 7px;
+    height: 7px;
   }
 }
 

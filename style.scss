@@ -12,29 +12,37 @@ body {
         font-size: 100px;
     }
 
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
     form {
         margin-bottom: 40px;
 
-        .row {
-            margin: 0;
+        & > div {
+            padding: 20px;
+        }
 
-            &:not(:last-child) {
-                border-bottom: 1px solid $lightGrey;
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-            }
+        #birth-date-section,
+        #sign-size-section {
+            border-bottom: 1px solid $lightGrey;
+        }
 
-            & > div:not(:last-child) {
-                border-right: 1px solid $lightGrey;
-            }
+        #birth-date-section,
+        #sign-color-section,
+        #back-color-section {
+            border-right: 1px solid $lightGrey;
         }
 
         .form-group {
             margin: 0;
 
             .title {
-                font-size: 24px;
                 margin-bottom: 10px;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
             }
 
             select {
@@ -76,10 +84,6 @@ body {
                     cursor: pointer;
                 }
             }
-
-            .color-label {
-                pointer-events: none;
-            }
         }
     }
 
@@ -92,14 +96,9 @@ body {
         border: 2px solid $white;
 
         td {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
-    }
-
-    .col,
-    [class*="col-"] {
-        padding: 0 20px;
     }
 
     .hide {
@@ -174,16 +173,23 @@ body {
         form {
             margin-bottom: 40px;
 
-            .row {
-                & > div:not(:last-child) {
-                    border-right: 0;
-                }
+            #sign-color-section,
+            #back-color-section {
+                border-bottom: 1px solid $lightGrey;
+            }
+
+            #birth-date-section,
+            #sign-color-section,
+            #back-color-section {
+                border-right: 0;
             }
 
             .form-group {
                 select {
                     font-size: 16px;
                     height: 40px;
+                    max-width: 300px;
+                    margin: 0 auto;
                 }
 
                 .text-danger {
@@ -204,18 +210,30 @@ body {
 
         table {
             td {
-                width: 8px;
-                height: 8px;
+                width: 10px;
+                height: 10px;
             }
         }
 
-        [class*="col-sm"] {
-            padding: 0;
+        //[class*="col-sm"] {
+        //    padding: 0;
+        //
+        //    &:not(:last-child) {
+        //        //padding-bottom: 20px;
+        //        //margin-bottom: 20px;
+        //        //border-bottom: 1px solid $lightGrey;
+        //        //border-right: 1px solid $lightGrey;
+        //    }
+        //}
+    }
+}
 
-            &:not(:last-child) {
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-                border-bottom: 1px solid $lightGrey;
+@media (max-width: 420px) {
+    body {
+        table {
+            td {
+                width: 7px;
+                height: 7px;
             }
         }
     }
