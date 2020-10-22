@@ -39,6 +39,7 @@ $(document).ready(function () {
     });
 
     const birthDateError = $('#birth-date-section .text-danger');
+    const resultError = $('#result-error');
 
     $('#calculate-btn').click(function () {
         cleanUp();
@@ -50,12 +51,19 @@ $(document).ready(function () {
             birthDateError.empty();
             birthDateError.append('Ievadiet pilnu dzimšanas datumu!');
             birthDateError.removeClass('hide');
+
+            resultError.empty();
+            resultError.append('Kļūda (skatīt augstāk)');
+            resultError.removeClass('hide');
         }
     });
 
     function cleanUp () {
         birthDateError.empty();
         birthDateError.addClass('hide');
+
+        resultError.empty();
+        resultError.addClass('hide');
 
         $('#result-sign').remove();
     }

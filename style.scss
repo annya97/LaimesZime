@@ -58,12 +58,6 @@ body {
                     }
                 }
 
-                .text-danger {
-                    margin-top: 10px;
-                    text-align: center;
-                    font-size: 14px;
-                }
-
                 .radio-container {
                     display: block;
                     position: relative;
@@ -155,6 +149,12 @@ body {
         }
     }
 
+    .text-danger {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
     .hide {
         display: none;
     }
@@ -207,10 +207,6 @@ body {
                     .title {
                         font-size: 24px;
                     }
-
-                    .text-danger {
-                        font-size: 16px;
-                    }
                 }
             }
         }
@@ -220,6 +216,10 @@ body {
                 width: 14px;
                 height: 14px;
             }
+        }
+
+        .text-danger {
+          font-size: 16px;
         }
     }
 }

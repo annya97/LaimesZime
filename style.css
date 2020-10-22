@@ -46,11 +46,6 @@ body form .form-section .form-group .birth-date-select select {
   color: #000000;
   cursor: pointer;
 }
-body form .form-section .form-group .text-danger {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 14px;
-}
 body form .form-section .form-group .radio-container {
   display: block;
   position: relative;
@@ -125,6 +120,11 @@ body table td {
   width: 7px;
   height: 7px;
 }
+body .text-danger {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
 body .hide {
   display: none;
 }
@@ -163,12 +163,12 @@ body form #back-color-section {
   body form .form-section .form-group .title {
     font-size: 24px;
   }
-  body form .form-section .form-group .text-danger {
-    font-size: 16px;
-  }
   body table td {
     width: 14px;
     height: 14px;
+  }
+  body .text-danger {
+    font-size: 16px;
   }
 }
 @media (min-width: 768px) {
