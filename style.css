@@ -68,25 +68,26 @@ body form .form-section .form-group .radio-container .checkmark {
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: #eee;
+  border: 1px solid #6c757d;
   border-radius: 50%;
 }
 body form .form-section .form-group .radio-container .checkmark:after {
   content: "";
   position: absolute;
   display: none;
-  top: 6px;
-  left: 6px;
-  width: 9px;
-  height: 9px;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: white;
+  background: #ffffff;
 }
 body form .form-section .form-group .radio-container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #6c757d;
 }
 body form .form-section .form-group .radio-container input:checked ~ .checkmark {
-  background-color: #2196F3;
+  border: 1px solid #007bff;
+  background-color: #007bff;
 }
 body form .form-section .form-group .radio-container input:checked ~ .checkmark:after {
   display: block;

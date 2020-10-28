@@ -2,6 +2,7 @@ $white: #ffffff;
 $lightGrey: #ced4da;
 $darkGrey: #6c757d;
 $black: #000000;
+$blue: #007bff;
 
 body {
     font-family: montserrat, sans-serif;
@@ -81,28 +82,29 @@ body {
                         left: 0;
                         height: 20px;
                         width: 20px;
-                        background-color: #eee;
+                        border: 1px solid $darkGrey;
                         border-radius: 50%;
 
                         &:after {
-                            content: "";
+                            content: '';
                             position: absolute;
                             display: none;
-                            top: 6px;
-                            left: 6px;
-                            width: 9px;
-                            height: 9px;
+                            top: 5px;
+                            left: 5px;
+                            width: 8px;
+                            height: 8px;
                             border-radius: 50%;
-                            background: white;
+                            background: $white;
                         }
                     }
 
                     &:hover input ~ .checkmark {
-                        background-color: #ccc;
+                        background-color: $darkGrey;
                     }
 
                     input:checked ~ .checkmark {
-                        background-color: #2196F3;
+                        border: 1px solid $blue;
+                        background-color: $blue;
 
                         &:after {
                             display: block;
