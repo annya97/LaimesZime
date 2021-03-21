@@ -1,2 +1,1 @@
-# LaimesZime
-123
+# Laimes Zīme
